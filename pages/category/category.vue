@@ -1,6 +1,6 @@
 <template>
 	<view>
-		categorayddddd
+		categoray
 	</view>
 </template>
 
