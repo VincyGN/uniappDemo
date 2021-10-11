@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {__webpack_require__.e(/*! require.ensure | pages/home/components/search */ "pages/home/components/search").then((function () {return resolve(__webpack_require__(/*! ./components/search.vue */ 38));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Ticket = function Ticket() {__webpack_require__.e(/*! require.ensure | pages/home/components/ticket */ "pages/home/components/ticket").then((function () {return resolve(__webpack_require__(/*! ./components/ticket.vue */ 48));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Classify = function Classify() {__webpack_require__.e(/*! require.ensure | pages/home/components/classify */ "pages/home/components/classify").then((function () {return resolve(__webpack_require__(/*! ./components/classify.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Tabs = function Tabs() {__webpack_require__.e(/*! require.ensure | pages/home/components/tabs */ "pages/home/components/tabs").then((function () {return resolve(__webpack_require__(/*! ./components/tabs.vue */ 64));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {__webpack_require__.e(/*! require.ensure | pages/home/components/search */ "pages/home/components/search").then((function () {return resolve(__webpack_require__(/*! ./components/search.vue */ 38));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Ticket = function Ticket() {__webpack_require__.e(/*! require.ensure | pages/home/components/ticket */ "pages/home/components/ticket").then((function () {return resolve(__webpack_require__(/*! ./components/ticket.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Classify = function Classify() {__webpack_require__.e(/*! require.ensure | pages/home/components/classify */ "pages/home/components/classify").then((function () {return resolve(__webpack_require__(/*! ./components/classify.vue */ 52));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Tabs = function Tabs() {__webpack_require__.e(/*! require.ensure | pages/home/components/tabs */ "pages/home/components/tabs").then((function () {return resolve(__webpack_require__(/*! ./components/tabs.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ArticleList = function ArticleList() {__webpack_require__.e(/*! require.ensure | pages/home/components/articleList */ "pages/home/components/articleList").then((function () {return resolve(__webpack_require__(/*! ./components/articleList.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -154,7 +154,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 {
-  components: { Search: Search, Ticket: Ticket, Classify: Classify, Tabs: Tabs },
+  components: { Search: Search, Ticket: Ticket, Classify: Classify, Tabs: Tabs, ArticleList: ArticleList },
   data: function data() {
     return {
       isFocus: false,

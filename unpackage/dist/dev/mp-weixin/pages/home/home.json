@@ -5,6 +5,7 @@
     "search": "/pages/home/components/search",
     "ticket": "/pages/home/components/ticket",
     "classify": "/pages/home/components/classify",
-    "tabs": "/pages/home/components/tabs"
+    "tabs": "/pages/home/components/tabs",
+    "article-list": "/pages/home/components/articleList"
   }
 }

@@ -4,9 +4,8 @@
 		<Ticket></Ticket>
 		<Classify></Classify>
 		<Tabs id="boxfixed" :class="{'is_fixed':isFixed}"></Tabs>
-		<view style="height: 1800upx;">
-			
-		</view>
+		<view style="height: 140upx;"></view>
+		<ArticleList></ArticleList>
 	</view>
 </template>
 
@@ -15,8 +14,9 @@
 	import Ticket from "./components/ticket.vue"
 	import Classify from "./components/classify.vue"
 	import Tabs from "./components/tabs.vue"
+	import ArticleList from "./components/articleList.vue"
 	export default {
-		components:{Search,Ticket,Classify,Tabs},
+		components:{Search,Ticket,Classify,Tabs,ArticleList},
 		data() {
 			return {
 				isFocus:false,
