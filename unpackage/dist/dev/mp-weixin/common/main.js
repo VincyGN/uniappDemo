@@ -91,6 +91,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 {
   onLaunch: function onLaunch() {
     console.log('App Launch');
+    // 判断是否是云开发
+    if (!wx.cloud) {
+      console.log('请使用2.2.3或以上的基础库以使用云能力');
+    } else {
+      wx.cloud.init({
+        env: 'travel-0giuxubb163af9a6',
+        traceUser: true });
+
+    }
   },
   onShow: function onShow() {
     console.log('App Show');
