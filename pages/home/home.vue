@@ -1,6 +1,6 @@
 <template>
 	<view class="home-container">
-		<Search></Search>
+		<Search :swipers="swipers"></Search>
 		<Ticket></Ticket>
 		<Classify></Classify>
 		<Tabs id="boxfixed" :class="{'is_fixed':isFixed}"></Tabs>
@@ -49,7 +49,18 @@
 					this.isFixed=false
 				}
 			}
-		}
+		},
+		created() {
+			// 请求轮播数据
+			const db=wx.cloud.database() //指定操作的数据库
+			const banner=db.collection('banner') //指定操作哪个集合
+			banner.get().then(res=>{
+				console.log(res)
+				this.swipers=res.data
+			}).catch(err=>{
+				console.log(err)
+			})
+		},
 		// methods: {
 			
 		// }

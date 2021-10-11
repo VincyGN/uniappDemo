@@ -151,22 +151,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
-//
 var _default =
 {
   name: "search",
+  props: {
+    swipers: Array },
+
   data: function data() {
     return {
-      isFocus: false,
-      swipers: [
-        // {
-        // 	imageUrl:"../../../../static"
-        // }
-      ] };
+      isFocus: false };
 
   },
   methods: {} };exports.default = _default;

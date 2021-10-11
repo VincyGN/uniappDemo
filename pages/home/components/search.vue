@@ -17,14 +17,9 @@
 		</view>
 		<!-- 轮播图 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
-			<swiper-item>
+			<swiper-item v-for="(item,index) in swipers" :key="item.id">
 				<view class="swiper-item">
-					<image src="../../../static/images/d584a9c37f8334a941a6721446850b8f.jpeg" mode="aspectFill" class="imageUrl"></image>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">
-					<image src="../../../static/images/e6412c0b8f819d54ea8aa75307b72caf.jpeg" mode="aspectFill" class="imageUrl"></image>
+					<image :src="item.image" mode="aspectFill" class="imageUrl"></image>
 				</view>
 			</swiper-item>
 		</swiper>
@@ -34,14 +29,12 @@
 <script>
 	export default {
 		name:"search",
+		props:{
+			swipers:Array
+		},
 		data() {
 			return {
 				isFocus: false,
-				swipers: [
-					// {
-					// 	imageUrl:"../../../../static"
-					// }
-				]
 			}
 		},
 		methods: {

@@ -186,8 +186,19 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       } else {
         this.isFixed = false;
       }
-    } }
+    } },
 
+  created: function created() {var _this2 = this;
+    // 请求轮播数据
+    var db = wx.cloud.database(); //指定操作的数据库
+    var banner = db.collection('banner'); //指定操作哪个集合
+    banner.get().then(function (res) {
+      console.log(res);
+      _this2.swipers = res.data;
+    }).catch(function (err) {
+      console.log(err);
+    });
+  }
   // methods: {
 
   // }
