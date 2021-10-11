@@ -2,6 +2,9 @@
   "navigationBarTitleText": "优购",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "search": "/pages/home/components/search"
+    "search": "/pages/home/components/search",
+    "ticket": "/pages/home/components/ticket",
+    "classify": "/pages/home/components/classify",
+    "tabs": "/pages/home/components/tabs"
   }
 }

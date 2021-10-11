@@ -33,6 +33,7 @@
 
 <script>
 	export default {
+		name:"search",
 		data() {
 			return {
 				isFocus: false,

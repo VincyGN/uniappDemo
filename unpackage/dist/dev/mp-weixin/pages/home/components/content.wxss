@@ -1,0 +1,13 @@
+.scroll.data-v-8ee7c972 {
+  white-space: nowrap;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  padding: 20rpx 0;
+}
+.scroll .con-text-a.data-v-8ee7c972 {
+  color: #292c33;
+}
+

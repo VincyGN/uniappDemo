@@ -1,0 +1,15 @@
+.ticket.data-v-72aab02e {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 30rpx 0;
+}
+.ticket image.data-v-72aab02e {
+  width: 90rpx;
+  height: 90rpx;
+}
+.ticket text.data-v-72aab02e {
+  font-size: 30rpx;
+  display: block;
+}
+
