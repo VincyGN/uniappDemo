@@ -17,6 +17,8 @@
 	import ArticleList from "./components/articleList.vue"
 	// 结构log
 	const {log}=console
+	// 导入请求API
+	import {home} from '../../common/cloudfun.js'
 	export default {
 		components:{Search,Ticket,Classify,Tabs,ArticleList},
 		data() {
@@ -55,22 +57,32 @@
 		},
 		created() {
 			// 请求轮播数据
-			const db=wx.cloud.database() //指定操作的数据库
-			const banner=db.collection('banner') //指定操作哪个集合
-			banner.get().then(res=>{
-				// console.log(res)
-				this.swipers=res.data
-			}).catch(err=>{
-				console.log(err)
-			})
+			let banner='banner'
 			// 请求tab数据
-			const tab=db.collection('tab')
-			tab.get().then(res=>{
+			let tab='tab'
+			// 并发请求数据
+			Promise.all([home(banner),home(tab)]).then(res=>{
 				log(res)
-				this.tab=res.data
+				this.swipers=res[0].data
+				this.tab=res[1].data
 			}).catch(err=>{
-				console.log(err)
+				log(err)
 			})
+			
+			// banner.get().then(res=>{
+			// 	// console.log(res)
+			// 	this.swipers=res.data
+			// }).catch(err=>{
+			// 	console.log(err)
+			// })
+			// // 请求tab数据
+			// const tab=db.collection('tab')
+			// tab.get().then(res=>{
+			// 	log(res)
+			// 	this.tab=res.data
+			// }).catch(err=>{
+			// 	console.log(err)
+			// })
 			
 		},
 		// methods: {

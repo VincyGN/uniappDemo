@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {__webpack_require__.e(/*! require.ensure | pages/home/components/search */ "pages/home/components/search").then((function () {return resolve(__webpack_require__(/*! ./components/search.vue */ 38));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Ticket = function Ticket() {__webpack_require__.e(/*! require.ensure | pages/home/components/ticket */ "pages/home/components/ticket").then((function () {return resolve(__webpack_require__(/*! ./components/ticket.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Classify = function Classify() {__webpack_require__.e(/*! require.ensure | pages/home/components/classify */ "pages/home/components/classify").then((function () {return resolve(__webpack_require__(/*! ./components/classify.vue */ 52));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Tabs = function Tabs() {__webpack_require__.e(/*! require.ensure | pages/home/components/tabs */ "pages/home/components/tabs").then((function () {return resolve(__webpack_require__(/*! ./components/tabs.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ArticleList = function ArticleList() {__webpack_require__.e(/*! require.ensure | pages/home/components/articleList */ "pages/home/components/articleList").then((function () {return resolve(__webpack_require__(/*! ./components/articleList.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -153,10 +153,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-// 结构log
-var _console = console,log = _console.log;var _default =
-{
-  components: { Search: Search, Ticket: Ticket, Classify: Classify, Tabs: Tabs, ArticleList: ArticleList },
+
+
+
+var _cloudfun = __webpack_require__(/*! ../../common/cloudfun.js */ 80);var Search = function Search() {__webpack_require__.e(/*! require.ensure | pages/home/components/search */ "pages/home/components/search").then((function () {return resolve(__webpack_require__(/*! ./components/search.vue */ 38));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Ticket = function Ticket() {__webpack_require__.e(/*! require.ensure | pages/home/components/ticket */ "pages/home/components/ticket").then((function () {return resolve(__webpack_require__(/*! ./components/ticket.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Classify = function Classify() {__webpack_require__.e(/*! require.ensure | pages/home/components/classify */ "pages/home/components/classify").then((function () {return resolve(__webpack_require__(/*! ./components/classify.vue */ 52));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Tabs = function Tabs() {__webpack_require__.e(/*! require.ensure | pages/home/components/tabs */ "pages/home/components/tabs").then((function () {return resolve(__webpack_require__(/*! ./components/tabs.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ArticleList = function ArticleList() {__webpack_require__.e(/*! require.ensure | pages/home/components/articleList */ "pages/home/components/articleList").then((function () {return resolve(__webpack_require__(/*! ./components/articleList.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);}; // 结构log
+var _console = console,log = _console.log; // 导入请求API
+var _default = { components: { Search: Search, Ticket: Ticket, Classify: Classify, Tabs: Tabs, ArticleList: ArticleList },
   data: function data() {
     return {
       isFocus: false,
@@ -193,22 +195,32 @@ var _console = console,log = _console.log;var _default =
 
   created: function created() {var _this2 = this;
     // 请求轮播数据
-    var db = wx.cloud.database(); //指定操作的数据库
-    var banner = db.collection('banner'); //指定操作哪个集合
-    banner.get().then(function (res) {
-      // console.log(res)
-      _this2.swipers = res.data;
-    }).catch(function (err) {
-      console.log(err);
-    });
+    var banner = 'banner';
     // 请求tab数据
-    var tab = db.collection('tab');
-    tab.get().then(function (res) {
+    var tab = 'tab';
+    // 并发请求数据
+    Promise.all([(0, _cloudfun.home)(banner), (0, _cloudfun.home)(tab)]).then(function (res) {
       log(res);
-      _this2.tab = res.data;
+      _this2.swipers = res[0].data;
+      _this2.tab = res[1].data;
     }).catch(function (err) {
-      console.log(err);
+      log(err);
     });
+
+    // banner.get().then(res=>{
+    // 	// console.log(res)
+    // 	this.swipers=res.data
+    // }).catch(err=>{
+    // 	console.log(err)
+    // })
+    // // 请求tab数据
+    // const tab=db.collection('tab')
+    // tab.get().then(res=>{
+    // 	log(res)
+    // 	this.tab=res.data
+    // }).catch(err=>{
+    // 	console.log(err)
+    // })
 
   }
   // methods: {
