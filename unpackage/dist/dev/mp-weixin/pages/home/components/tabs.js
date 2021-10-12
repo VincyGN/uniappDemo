@@ -136,39 +136,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   name: "tab",
+  props: {
+    tab: Array },
+
   data: function data() {
     return {
-      num: 0,
-      tab: [
-      {
-        name: "推荐",
-        title: "猜你喜欢" },
-
-      {
-        name: "推荐",
-        title: "猜你喜欢" },
-
-      {
-        name: "推荐",
-        title: "猜你喜欢" },
-
-      {
-        name: "推荐",
-        title: "猜你喜欢" },
-
-      {
-        name: "推荐",
-        title: "猜你喜欢" },
-
-      {
-        name: "推荐",
-        title: "猜你喜欢" },
-
-      {
-        name: "推荐",
-        title: "猜你喜欢" }] };
-
-
+      num: 0 };
 
   },
   methods: {

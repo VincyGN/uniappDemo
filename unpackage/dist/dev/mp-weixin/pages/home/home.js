@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {__webpack_require__.e(/*! require.ensure | pages/home/components/search */ "pages/home/components/search").then((function () {return resolve(__webpack_require__(/*! ./components/search.vue */ 38));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Ticket = function Ticket() {__webpack_require__.e(/*! require.ensure | pages/home/components/ticket */ "pages/home/components/ticket").then((function () {return resolve(__webpack_require__(/*! ./components/ticket.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Classify = function Classify() {__webpack_require__.e(/*! require.ensure | pages/home/components/classify */ "pages/home/components/classify").then((function () {return resolve(__webpack_require__(/*! ./components/classify.vue */ 52));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Tabs = function Tabs() {__webpack_require__.e(/*! require.ensure | pages/home/components/tabs */ "pages/home/components/tabs").then((function () {return resolve(__webpack_require__(/*! ./components/tabs.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ArticleList = function ArticleList() {__webpack_require__.e(/*! require.ensure | pages/home/components/articleList */ "pages/home/components/articleList").then((function () {return resolve(__webpack_require__(/*! ./components/articleList.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {__webpack_require__.e(/*! require.ensure | pages/home/components/search */ "pages/home/components/search").then((function () {return resolve(__webpack_require__(/*! ./components/search.vue */ 38));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Ticket = function Ticket() {__webpack_require__.e(/*! require.ensure | pages/home/components/ticket */ "pages/home/components/ticket").then((function () {return resolve(__webpack_require__(/*! ./components/ticket.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Classify = function Classify() {__webpack_require__.e(/*! require.ensure | pages/home/components/classify */ "pages/home/components/classify").then((function () {return resolve(__webpack_require__(/*! ./components/classify.vue */ 52));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Tabs = function Tabs() {__webpack_require__.e(/*! require.ensure | pages/home/components/tabs */ "pages/home/components/tabs").then((function () {return resolve(__webpack_require__(/*! ./components/tabs.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ArticleList = function ArticleList() {__webpack_require__.e(/*! require.ensure | pages/home/components/articleList */ "pages/home/components/articleList").then((function () {return resolve(__webpack_require__(/*! ./components/articleList.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -153,6 +153,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+// 结构log
+var _console = console,log = _console.log;var _default =
 {
   components: { Search: Search, Ticket: Ticket, Classify: Classify, Tabs: Tabs, ArticleList: ArticleList },
   data: function data() {
@@ -161,7 +163,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       isFixed: false,
       rect: '',
       menuTop: '',
-      swipers: [] };
+      swipers: [],
+      tab: [] };
 
   },
   onLoad: function onLoad() {var _this = this;
@@ -193,11 +196,20 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     var db = wx.cloud.database(); //指定操作的数据库
     var banner = db.collection('banner'); //指定操作哪个集合
     banner.get().then(function (res) {
-      console.log(res);
+      // console.log(res)
       _this2.swipers = res.data;
     }).catch(function (err) {
       console.log(err);
     });
+    // 请求tab数据
+    var tab = db.collection('tab');
+    tab.get().then(function (res) {
+      log(res);
+      _this2.tab = res.data;
+    }).catch(function (err) {
+      console.log(err);
+    });
+
   }
   // methods: {
 

@@ -3,7 +3,7 @@
 		<Search :swipers="swipers"></Search>
 		<Ticket></Ticket>
 		<Classify></Classify>
-		<Tabs id="boxfixed" :class="{'is_fixed':isFixed}"></Tabs>
+		<Tabs :tab="tab" id="boxfixed" :class="{'is_fixed':isFixed}"></Tabs>
 		<view style="height: 140upx;"></view>
 		<ArticleList></ArticleList>
 	</view>
@@ -15,6 +15,8 @@
 	import Classify from "./components/classify.vue"
 	import Tabs from "./components/tabs.vue"
 	import ArticleList from "./components/articleList.vue"
+	// 结构log
+	const {log}=console
 	export default {
 		components:{Search,Ticket,Classify,Tabs,ArticleList},
 		data() {
@@ -23,7 +25,8 @@
 				isFixed:false,
 				rect:'',
 				menuTop:'',
-				swipers:[]
+				swipers:[],
+				tab:[]
 			}
 		},
 		onLoad() {
@@ -55,11 +58,20 @@
 			const db=wx.cloud.database() //指定操作的数据库
 			const banner=db.collection('banner') //指定操作哪个集合
 			banner.get().then(res=>{
-				console.log(res)
+				// console.log(res)
 				this.swipers=res.data
 			}).catch(err=>{
 				console.log(err)
 			})
+			// 请求tab数据
+			const tab=db.collection('tab')
+			tab.get().then(res=>{
+				log(res)
+				this.tab=res.data
+			}).catch(err=>{
+				console.log(err)
+			})
+			
 		},
 		// methods: {
 			

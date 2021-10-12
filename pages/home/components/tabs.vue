@@ -20,39 +20,12 @@
 <script>
 export default {
 	name:"tab",
+	props:{
+		tab:Array
+	},
 	data(){
 		return{
 			num:0,
-			tab:[
-				{
-					name:"推荐",
-					title:"猜你喜欢"
-				},
-				{
-					name:"推荐",
-					title:"猜你喜欢"
-				},
-				{
-					name:"推荐",
-					title:"猜你喜欢"
-				},
-				{
-					name:"推荐",
-					title:"猜你喜欢"
-				},
-				{
-					name:"推荐",
-					title:"猜你喜欢"
-				},
-				{
-					name:"推荐",
-					title:"猜你喜欢"
-				},
-				{
-					name:"推荐",
-					title:"猜你喜欢"
-				},
-			]
 		}
 	},
 	methods:{
