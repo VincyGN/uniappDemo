@@ -10,4 +10,14 @@ const home=function(banner){
 		})
 	})
 }
-export {home}
+const homeList=function(list){
+	return new Promise((resolve,reject)=>{
+		const listData=db.collection(list).limit(6) //指定操作哪个集合
+		listData.get().then(res=>{
+			resolve(res)
+		}).catch(err=>{
+			reject(err)
+		})
+	})
+}
+export {home,homeList}

@@ -138,39 +138,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
-  name: "articleList" };exports.default = _default;
+  name: "articleList",
+  props: {
+    articleData: Array } };exports.default = _default;
 
 /***/ }),
 

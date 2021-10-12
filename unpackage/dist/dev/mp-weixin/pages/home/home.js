@@ -166,7 +166,8 @@ var _default = { components: { Search: Search, Ticket: Ticket, Classify: Classif
       rect: '',
       menuTop: '',
       swipers: [],
-      tab: [] };
+      tab: [],
+      articleData: [] };
 
   },
   onLoad: function onLoad() {var _this = this;
@@ -174,13 +175,13 @@ var _default = { components: { Search: Search, Ticket: Ticket, Classify: Classif
     var query = wx.createSelectorQuery();
     query.select('#boxfixed').boundingClientRect();
     query.exec(function (res) {
-      console.log(res);
+      // console.log(res)
       _this.menuTop = res[0].top;
     });
   },
   // 监听页面滚动的事件
   onPageScroll: function onPageScroll(e) {
-    console.log(e);
+    // console.log(e)
     this.rect = e.scrollTop;
   },
   // 计算属性滑动组件置顶
@@ -198,11 +199,14 @@ var _default = { components: { Search: Search, Ticket: Ticket, Classify: Classif
     var banner = 'banner';
     // 请求tab数据
     var tab = 'tab';
+    // 初次请求攻略推荐数据
+    var recomment = 'recomment';
     // 并发请求数据
-    Promise.all([(0, _cloudfun.home)(banner), (0, _cloudfun.home)(tab)]).then(function (res) {
+    Promise.all([(0, _cloudfun.home)(banner), (0, _cloudfun.home)(tab), (0, _cloudfun.homeList)(recomment)]).then(function (res) {
       log(res);
       _this2.swipers = res[0].data;
       _this2.tab = res[1].data;
+      _this2.articleData = res[2].data;
     }).catch(function (err) {
       log(err);
     });
@@ -222,11 +226,8 @@ var _default = { components: { Search: Search, Ticket: Ticket, Classify: Classif
     // 	console.log(err)
     // })
 
-  }
-  // methods: {
-
-  // }
-};exports.default = _default;
+  },
+  methods: {} };exports.default = _default;
 
 /***/ }),
 /* 18 */

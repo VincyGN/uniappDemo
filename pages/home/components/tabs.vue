@@ -3,7 +3,7 @@
 		<scroll-view scroll-x="true" class="scroll"  scroll-with-animation="true">
 			<view>
 				<block v-for="(item,index) in tab" :key="index">
-					<view class="list-cont" @click="getTabs(index)" :class="{active:index==num}">
+					<view class="list-cont" @click="getTabs(item,index)" :class="{active:index==num}">
 						<view>
 							<text class="con-text-a">{{item.name}}</text>
 						</view>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+// 导入请求API
+import {homeList} from '../../../common/cloudfun.js'
 export default {
 	name:"tab",
 	props:{
@@ -29,8 +31,15 @@ export default {
 		}
 	},
 	methods:{
-		getTabs(index){
+		getTabs(item,index){
 			this.num=index
+			console.log(item)
+			homeList(item.nav).then(res=>{
+				console.log(res,this.$parent.articleData)
+				this.$parent.articleData=res.data
+			}).catch(err=>{
+				console.log(err)
+			})
 		}
 	}
 }

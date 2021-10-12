@@ -5,7 +5,7 @@
 		<Classify></Classify>
 		<Tabs :tab="tab" id="boxfixed" :class="{'is_fixed':isFixed}"></Tabs>
 		<view style="height: 140upx;"></view>
-		<ArticleList></ArticleList>
+		<ArticleList :articleData='articleData'></ArticleList>
 	</view>
 </template>
 
@@ -18,7 +18,7 @@
 	// 结构log
 	const {log}=console
 	// 导入请求API
-	import {home} from '../../common/cloudfun.js'
+	import {home,homeList} from '../../common/cloudfun.js'
 	export default {
 		components:{Search,Ticket,Classify,Tabs,ArticleList},
 		data() {
@@ -28,7 +28,8 @@
 				rect:'',
 				menuTop:'',
 				swipers:[],
-				tab:[]
+				tab:[],
+				articleData:[]
 			}
 		},
 		onLoad() {
@@ -36,13 +37,13 @@
 			const query=wx.createSelectorQuery()
 			query.select('#boxfixed').boundingClientRect()
 			query.exec((res)=>{
-				console.log(res)
+				// console.log(res)
 				this.menuTop=res[0].top
 			})
 		},
 		// 监听页面滚动的事件
 		onPageScroll(e) {
-			console.log(e)
+			// console.log(e)
 			this.rect=e.scrollTop
 		},
 		// 计算属性滑动组件置顶
@@ -60,11 +61,14 @@
 			let banner='banner'
 			// 请求tab数据
 			let tab='tab'
+			// 初次请求攻略推荐数据
+			let recomment='recomment'
 			// 并发请求数据
-			Promise.all([home(banner),home(tab)]).then(res=>{
+			Promise.all([home(banner),home(tab),homeList(recomment)]).then(res=>{
 				log(res)
 				this.swipers=res[0].data
 				this.tab=res[1].data
+				this.articleData=res[2].data
 			}).catch(err=>{
 				log(err)
 			})
@@ -85,9 +89,9 @@
 			// })
 			
 		},
-		// methods: {
+		methods: {
 			
-		// }
+		}
 	}
 </script>
 

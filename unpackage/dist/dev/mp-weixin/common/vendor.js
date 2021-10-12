@@ -8679,7 +8679,7 @@ function walkJsonObj(jsonObj, walk) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.home = void 0; // api请求封装
+Object.defineProperty(exports, "__esModule", { value: true });exports.homeList = exports.home = void 0; // api请求封装
 var db = wx.cloud.database(); //指定操作的数据库
 var home = function home(banner) {
   return new Promise(function (resolve, reject) {
@@ -8691,6 +8691,16 @@ var home = function home(banner) {
     });
   });
 };exports.home = home;
+var homeList = function homeList(list) {
+  return new Promise(function (resolve, reject) {
+    var listData = db.collection(list).limit(6); //指定操作哪个集合
+    listData.get().then(function (res) {
+      resolve(res);
+    }).catch(function (err) {
+      reject(err);
+    });
+  });
+};exports.homeList = homeList;
 
 /***/ })
 

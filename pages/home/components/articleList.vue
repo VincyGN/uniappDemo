@@ -1,60 +1,33 @@
 <template>
 	<view class="articleList">
 		<view class="conteng">
-			<!-- <block v-for="(item,index) in Articleend" :key='index'> -->
-			<view class="article-content">
-				<view class="conteng-img">
-					<image src="../../../static/images/e6412c0b8f819d54ea8aa75307b72caf.jpeg" mode="aspectFill" class="animated fadeIn"></image>
-				</view>
-				<!-- 文字介绍 -->
-				<view class="article-introduce">
-					<view class="article-name">三亚租车</view>
-					<view class="article-title">三亚租车敞篷跑车自驾保时捷718宝马甲壳虫哈哈哈哈哈</view>
-					<view class="article-label">法拉利加州</view>
-					<view class="purchase">
-						<text class="article-price">¥86</text>
-						<text class="article-purchase">81人已购买</text>
+			<block v-for="(item,index) in articleData" :key='index'>
+				<view class="article-content">
+					<view class="conteng-img">
+						<image :src="item.image" mode="aspectFill" class="animated fadeIn"></image>
+					</view>
+					<!-- 文字介绍 -->
+					<view class="article-introduce">
+						<view class="article-name">{{item.title}}</view>
+						<view class="article-title">{{item.list}}</view>
+						<view class="article-label">{{item.label}}</view>
+						<view class="purchase">
+							<text class="article-price">¥{{item.price}}</text>
+							<text class="article-purchase">{{item.buy}}人已购买</text>
+						</view>
 					</view>
 				</view>
-			</view>
-			<view class="article-content">
-				<view class="conteng-img">
-					<image src="../../../static/images/e6412c0b8f819d54ea8aa75307b72caf.jpeg" mode="aspectFill" class="animated fadeIn"></image>
-				</view>
-				<!-- 文字介绍 -->
-				<view class="article-introduce">
-					<view class="article-name">三亚租车</view>
-					<view class="article-title">三亚租车敞篷跑车自驾保时捷718宝马甲壳虫哈哈哈哈哈</view>
-					<view class="article-label">法拉利加州</view>
-					<view class="purchase">
-						<text class="article-price">¥86</text>
-						<text class="article-purchase">81人已购买</text>
-					</view>
-				</view>
-			</view>
-			<view class="article-content">
-				<view class="conteng-img">
-					<image src="../../../static/images/e6412c0b8f819d54ea8aa75307b72caf.jpeg" mode="aspectFill"></image>
-				</view>
-				<!-- 文字介绍 -->
-				<view class="article-introduce">
-					<view class="article-name">三亚租车</view>
-					<view class="article-title">三亚租车敞篷跑车自驾保时捷718宝马甲壳虫哈哈哈哈哈</view>
-					<view class="article-label">法拉利加州</view>
-					<view class="purchase">
-						<text class="article-price">¥86</text>
-						<text class="article-purchase">81人已购买</text>
-					</view>
-				</view>
-			</view>
-			<!-- </block> -->
+			</block>
 		</view>
 	</view>
 </template>
 
 <script>
 export default {
-	name:"articleList"
+	name:"articleList",
+	props:{
+		articleData:Array
+	}
 }
 </script>
 

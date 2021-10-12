@@ -114,39 +114,48 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  name: "tab",
-  props: {
-    tab: Array },
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-  data: function data() {
-    return {
-      num: 0 };
 
-  },
-  methods: {
-    getTabs: function getTabs(index) {
-      this.num = index;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _cloudfun = __webpack_require__(/*! ../../../common/cloudfun.js */ 80); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// 导入请求API
+var _default = { name: "tab", props: { tab: Array }, data: function data() {return { num: 0 };}, methods: { getTabs: function getTabs(item, index) {var _this = this;this.num = index;console.log(item);(0, _cloudfun.homeList)(item.nav).then(function (res) {console.log(res, _this.$parent.articleData);_this.$parent.articleData = res.data;}).catch(function (err) {console.log(err);});
     } } };exports.default = _default;
 
 /***/ }),
